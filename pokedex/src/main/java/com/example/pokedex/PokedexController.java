@@ -16,10 +16,10 @@ public class PokedexController {
         return pokedexService.getPokedex();
     }
 
-/*    @GetMapping("/pokedex/{id}")
+    @GetMapping("/pokedex/{id}")
     public Pokemon getPokemon(@PathVariable Integer id) {
         return pokedexService.getPokemon(id);
-    }*/
+    }
 
     @PostMapping("/pokedex")
         public void addPokemon(@RequestBody Pokemon pokemon){

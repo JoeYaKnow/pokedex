@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 public class PokedexService {
-    private List<Pokemon> pokedex = new ArrayList<>(
+    private static List<Pokemon> Pokedex = new ArrayList<>(
             Arrays.asList(
                     new Pokemon(1, "Pikachu", "Electric", "Large spicy mouse"),
                     new Pokemon(2, "Blastoise", "Water", "Massive squirting turtle"),
@@ -18,15 +18,19 @@ public class PokedexService {
             )
         );
     public List<Pokemon> getPokedex(){
-        return pokedex;
+        return Pokedex;
     }
 
-/*    public Pokemon getPokemon(Integer id) {
-       return Pokedex.stream().filter(p -> p.getId().equals(id)).findFirst().get();
-    }*/
+    public Pokemon getPokemon(Integer id) {
+
+        return Pokedex.stream()
+                .filter(p -> p.getId() == id)
+                .findFirst()
+                .orElse(null);
+    }
 
     public void addPokemon(Pokemon pokemon) {
-        pokedex.add(pokemon);
+        Pokedex.add(pokemon);
     }
 
 
